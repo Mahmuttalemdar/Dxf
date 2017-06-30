@@ -63,6 +63,18 @@
     </Object>
     <!--
 
+    ACDBNAVISWORKSMODELDEF
+
+    -->
+    <Object Name="DxfNavisWorksModelDefinition" ObjectType="NavisWorksModelDefinition" SubclassMarker="AcDbNavisworksModelDef" TypeString="AcDbNavisworksModelDef" MinVersion="R2018">
+        <Property Name="ModelPath" Code="1" Type="string" DefaultValue="null" />
+        <Property Name="IsModelLoadedOnDrawingOpen" Code="290" Type="bool" DefaultValue="false" />
+        <Property Name="MinimumExtent" Code="10" Type="DxfPoint" DefaultValue="DxfPoint.Origin" CodeOverrides="10,20,30" />
+        <Property Name="MaximumExtent" Code="11" Type="DxfPoint" DefaultValue="DxfPoint.Origin" CodeOverrides="11,21,31" />
+        <Property Name="IsHostGeometryDrawn" Code="290" Type="bool" DefaultValue="false" />
+    </Object>
+    <!--
+
     DATATABLE
 
     -->
@@ -294,7 +306,7 @@
     IMAGEDEF_REACTOR
 
     -->
-    <Object Name="DxfImageDefinitionReactor" ObjectType="ImageDefinitionReactor" SubclassMarker="AcDbRasterImageDefReactor" TypeString="IMAGEDEF_REACTOR" MaxVersion="R14">
+    <Object Name="DxfImageDefinitionReactor" ObjectType="ImageDefinitionReactor" SubclassMarker="AcDbRasterImageDefReactor" TypeString="IMAGEDEF_REACTOR" MinVersion="R14">
         <Property Name="ClassVersion" Code="90" Type="int" DefaultValue="0" />
     </Object>
     <!--
@@ -302,7 +314,7 @@
     LAYER_FILTER
 
     -->
-    <Object Name="DxfLayerFilter" ObjectType="LayerFilter" SubclassMarker="AcDbLayerFilter" TypeString="LAYER_FILTER" MaxVersion="R2004">
+    <Object Name="DxfLayerFilter" ObjectType="LayerFilter" SubclassMarker="AcDbLayerFilter" TypeString="LAYER_FILTER" MinVersion="R2004">
         <Property Name="LayerNames" Code="8" Type="string" DefaultValue="null" AllowMultiples="true" />
         <WriteOrder>
             <WriteSpecificValue Code="100" Value="&quot;AcDbFilter&quot;" />
@@ -315,7 +327,7 @@
     LAYER_INDEX
 
     -->
-    <Object Name="DxfLayerIndex" ObjectType="LayerIndex" SubclassMarker="AcDbLayerIndex" TypeString="LAYER_INDEX" MaxVersion="R14">
+    <Object Name="DxfLayerIndex" ObjectType="LayerIndex" SubclassMarker="AcDbLayerIndex" TypeString="LAYER_INDEX" MinVersion="R14">
         <Property Name="TimeStamp" Code="40" Type="DateTime" DefaultValue="DateTime.Now" ReadConverter="DateDouble" WriteConverter="DateDouble" />
         <Property Name="LayerNames" Code="8" Type="string" DefaultValue="null" AllowMultiples="true" />
         <Pointer Name="IdBuffers" Code="360" Type="IDxfItem" AllowMultiples="true" />
@@ -334,7 +346,7 @@
     LAYOUT
 
     -->
-    <Object Name="DxfLayout" ObjectType="Layout" SubclassMarker="AcDbLayout" TypeString="LAYOUT" BaseClass="DxfPlotSettings" GenerateReaderFunction="false" MaxVersion="R2000">
+    <Object Name="DxfLayout" ObjectType="Layout" SubclassMarker="AcDbLayout" TypeString="LAYOUT" BaseClass="DxfPlotSettings" GenerateReaderFunction="false" MinVersion="R2000">
         <Property Name="LayoutName" Code="1" Type="string" DefaultValue="null" />
         <Property Name="LayoutFlags" Code="70" Type="int" DefaultValue="0" WriteConverter="(short)">
             <Flag Name="IsPsLtScale" Mask="1" />
@@ -354,13 +366,14 @@
         <Pointer Name="Viewport" Code="330" Type="IDxfItem" />
         <Pointer Name="TableRecord" Code="345" Type="IDxfItem" />
         <Pointer Name="TableRecordBase" Code="346" Type="IDxfItem" />
+        <!-- plot object (code 333) is inherited from `DxfPlotSettings` -->
     </Object>
     <!--
 
     LIGHTLIST
 
     -->
-    <Object Name="DxfLightList" ObjectType="LightList" SubclassMarker="AcDbLightList" TypeString="LIGHTLIST" GenerateReaderFunction="false" GenerateWriterFunction="false" MaxVersion="R2007">
+    <Object Name="DxfLightList" ObjectType="LightList" SubclassMarker="AcDbLightList" TypeString="LIGHTLIST" GenerateReaderFunction="false" GenerateWriterFunction="false" MinVersion="R2007">
         <Property Name="Version" Code="90" Type="int" DefaultValue="0" />
         <Pointer Name="Lights" Code="5" Type="DxfLight" AllowMultiples="true" />
     </Object>
@@ -369,7 +382,7 @@
     MATERIAL
 
     -->
-    <Object Name="DxfMaterial" ObjectType="Material" SubclassMarker="AcDbMaterial" TypeString="MATERIAL" GenerateReaderFunction="false"  MaxVersion="R2004">
+    <Object Name="DxfMaterial" ObjectType="Material" SubclassMarker="AcDbMaterial" TypeString="MATERIAL" GenerateReaderFunction="false" MinVersion="R2004">
         <Property Name="Name" Code="1" Type="string" DefaultValue="null" />
         <Property Name="Description" Code="2" Type="string" DefaultValue="null" />
 
@@ -689,7 +702,7 @@
     OBJECT_PTR
 
     -->
-    <Object Name="DxfObjectPointer" ObjectType="ObjectPointer" SubclassMarker="null" TypeString="OBJECT_PTR" MaxVersion="R14">
+    <Object Name="DxfObjectPointer" ObjectType="ObjectPointer" SubclassMarker="null" TypeString="OBJECT_PTR" MinVersion="R14">
         <Property Name="AseXData" Code="1001" Type="string" DefaultValue="null" />
         <WriteOrder>
             <WriteProperty Property="AseXData" />
@@ -700,7 +713,7 @@
     PLOTSETTINGS
 
     -->
-    <Object Name="DxfPlotSettings" ObjectType="PlotSettings" SubclassMarker="AcDbPlotSettings" TypeString="PLOTSETTINGS" MaxVersion="R2000">
+    <Object Name="DxfPlotSettings" ObjectType="PlotSettings" SubclassMarker="AcDbPlotSettings" TypeString="PLOTSETTINGS" MinVersion="R2000">
         <Property Name="PageSetupName" Code="1" Type="string" DefaultValue="null" />
         <Property Name="PrinterName" Code="2" Type="string" DefaultValue="null" />
         <Property Name="PaperSize" Code="4" Type="string" DefaultValue="null" />
@@ -753,7 +766,7 @@
     RASTERVARIABLES
 
     -->
-    <Object Name="DxfRasterVariables" ObjectType="RasterVariables" SubclassMarker="AcDbRasterVariables" TypeString="RASTERVARIABLES" MaxVersion="R14">
+    <Object Name="DxfRasterVariables" ObjectType="RasterVariables" SubclassMarker="AcDbRasterVariables" TypeString="RASTERVARIABLES" MinVersion="R14">
         <Property Name="ClassVersion" Code="90" Type="int" DefaultValue="0" />
         <Property Name="IsDisplayFrameImage" Code="70" Type="bool" DefaultValue="false" ReadConverter="BoolShort" WriteConverter="BoolShort" />
         <Property Name="IsHighDisplayQuality" Code="71" Type="bool" DefaultValue="false" ReadConverter="BoolShort" WriteConverter="BoolShort" />
@@ -764,7 +777,7 @@
     MENTALRAYRENDERSETTINGS
 
     -->
-    <Object Name="DxfMentalRayRenderSettings" ObjectType="MentalRayRenderSettings" SubclassMarker="AcDbRenderSettings" TypeString="MENTALRAYRENDERSETTINGS" MaxVersion="R2007">
+    <Object Name="DxfMentalRayRenderSettings" ObjectType="MentalRayRenderSettings" SubclassMarker="AcDbRenderSettings" TypeString="MENTALRAYRENDERSETTINGS" MinVersion="R2007">
         <Property Name="ClassVersion_1" Code="90" Type="int" DefaultValue="1" />
         <Property Name="PresetName" Code="1" Type="string" DefaultValue="null" />
         <Property Name="RenderMaterials" Code="290" Type="bool" DefaultValue="false" />
@@ -874,7 +887,7 @@
     RENDERENVIRONMENT
 
     -->
-    <Object Name="DxfRenderEnvironment" ObjectType="RenderEnvironment" SubclassMarker="AcDbRenderEnvironment" TypeString="RENDERENVIRONMENT" MaxVersion="R2007">
+    <Object Name="DxfRenderEnvironment" ObjectType="RenderEnvironment" SubclassMarker="AcDbRenderEnvironment" TypeString="RENDERENVIRONMENT" MinVersion="R2007">
         <Property Name="ClassVersion" Code="90" Type="int" DefaultValue="1" />
         <Property Name="IsFogEnabled" Code="290" Type="bool" DefaultValue="false" />
         <Property Name="IsBackgroundFogEnabled" Code="290" Type="bool" DefaultValue="false" />
@@ -893,7 +906,7 @@
     RENDERGLOBAL
 
     -->
-    <Object Name="DxfRenderGlobal" ObjectType="RenderGlobal" SubclassMarker="AcDbRenderGlobal" TypeString="RENDERGLOBAL" MaxVersion="R2007">
+    <Object Name="DxfRenderGlobal" ObjectType="RenderGlobal" SubclassMarker="AcDbRenderGlobal" TypeString="RENDERGLOBAL" MinVersion="R2007">
         <Property Name="ClassVersion" Code="90" Type="int" DefaultValue="2" />
         <Property Name="RenderProcedure" Code="90" Type="DxfRenderProcedure" DefaultValue="DxfRenderProcedure.View" ReadConverter="(DxfRenderProcedure)" WriteConverter="(int)" />
         <Property Name="RenderDestination" Code="90" Type="DxfRenderDestination" DefaultValue="DxfRenderDestination.RenderWindow" ReadConverter="(DxfRenderDestination)" WriteConverter="(int)" />
@@ -906,10 +919,69 @@
     </Object>
     <!--
 
+    RAPIDRTRENDERENVIRONMENT
+
+    -->
+    <Object Name="DxfRapidRTRenderEnvironment" ObjectType="RapidRTRenderEnvironment" SubclassMarker="AcDbIBLBackground" TypeString="RAPIDRTRENDERENVIRONMENT" MinVersion="R2018">
+        <Property Name="SubclassVersion" Code="90" Type="int" DefaultValue="0" />
+        <Property Name="IsEnabled" Code="290" Type="bool" DefaultValue="true" />
+        <Property Name="ImageBasedLightingMapFileName" Code="1" Type="string" DefaultValue="null" />
+        <Property Name="RotationAngle" Code="40" Type="double" DefaultValue="0.0" Comment="Rotation angle in degrees." />
+        <Property Name="IsMapAsBackground" Code="290" Type="bool" DefaultValue="true" />
+        <Pointer Name="CustomBackground" Code="340" Type="IDxfItem" />
+    </Object>
+    <!--
+
+    RAPIDRTRENDERSETTINGS
+
+    -->
+    <Object Name="DxfRapidRenderSettings" ObjectType="RapidRenderSettings" SubclassMarker="AcDbRenderSettings" TypeString="RAPIDRTRENDERSETTINGS" MinVersion="R2018">
+        <Property Name="SubclassVersion" Code="90" Type="int" DefaultValue="0" />
+        <Property Name="RenderPresetName" Code="1" Type="string" DefaultValue="null" />
+        <Property Name="AreMaterialsEnabled" Code="290" Type="bool" DefaultValue="true" />
+        <Property Name="IsTextureSamplingEnabled" Code="290" Type="bool" DefaultValue="true" />
+        <Property Name="AreBackFacesEnabled" Code="290" Type="bool" DefaultValue="true" />
+        <Property Name="AreShadowsEnabled" Code="290" Type="bool" DefaultValue="true" />
+        <Property Name="PreviewImageFileName" Code="1" Type="string" DefaultValue="null" />
+        <Property Name="RenderPresetDescription" Code="1" Type="string" DefaultValue="null" />
+        <Property Name="DisplayIndex" Code="90" Type="int" DefaultValue="0" />
+        <Property Name="IsPredefinedRenderPreset" Code="290" Type="bool" DefaultValue="true" />
+        <Property Name="RenderDuration" Code="70" Type="DxfRenderDuration" DefaultValue="DxfRenderDuration.RenderByTime" ReadConverter="(DxfRenderDuration)" WriteConverter="(DxfRenderDuration)" />
+        <Property Name="RenderLevelCountLimit" Code="90" Type="int" DefaultValue="0" />
+        <Property Name="RenderTimeLimit" Code="90" Type="int" DefaultValue="0" />
+        <Property Name="RenderAccuracy" Code="70" Type="DxfRenderAccuracy" DefaultValue="DxfRenderAccuracy.Low" ReadConverter="(DxfRenderAccuracy)" WriteConverter="(DxfRenderAccuracy)" />
+        <Property Name="SamplingFilter" Code="70" Type="DxfSamplingFilter" DefaultValue="DxfSamplingFilter.Box" ReadConverter="(DxfSamplingFilter)" WriteConverter="(DxfSamplingFilter)" />
+        <Property Name="FilterWidth" Code="40" Type="double" DefaultValue="1.0" />
+        <Property Name="FilterHeight" Code="40" Type="double" DefaultValue="1.0" />
+        <WriteOrder>
+            <WriteSpecificValue Code="100" Value="&quot;AcDbRenderSettings&quot;" />
+            <WriteProperty Property="SubclassVersion" />
+            <WriteProperty Property="RenderPresetName" />
+            <WriteProperty Property="AreMaterialsEnabled" />
+            <WriteProperty Property="IsTextureSamplingEnabled" />
+            <WriteProperty Property="AreBackFacesEnabled" />
+            <WriteProperty Property="AreShadowsEnabled" />
+            <WriteProperty Property="PreviewImageFileName" />
+            <WriteProperty Property="RenderPresetDescription" />
+            <WriteProperty Property="DisplayIndex" />
+            <WriteProperty Property="IsPredefinedRenderPreset" />
+            <WriteSpecificValue Code="100" Value="&quot;AcDbRapidRTRenderSettings&quot;" />
+            <WriteProperty Property="SubclassVersion" />
+            <WriteProperty Property="RenderDuration" />
+            <WriteProperty Property="RenderLevelCountLimit" />
+            <WriteProperty Property="RenderTimeLimit" />
+            <WriteProperty Property="RenderAccuracy" />
+            <WriteProperty Property="SamplingFilter" />
+            <WriteProperty Property="FilterWidth" />
+            <WriteProperty Property="FilterHeight" />
+        </WriteOrder>
+    </Object>
+    <!--
+
     SECTIONMANAGER
 
     -->
-    <Object Name="DxfSectionManager" ObjectType="SectionManager" SubclassMarker="AcDbSectionManager" TypeString="SECTIONMANAGER" MaxVersion="R2007">
+    <Object Name="DxfSectionManager" ObjectType="SectionManager" SubclassMarker="AcDbSectionManager" TypeString="SECTIONMANAGER" MinVersion="R2007">
         <Property Name="RequiresFullUpdate" Code="70" Type="bool" DefaultValue="false" ReadConverter="BoolShort" WriteConverter="BoolShort" />
         <Property Name="_sectionCount" Code="90" Type="int" DefaultValue="0" Accessibility="private" />
         <Pointer Name="SectionEntities" Code="330" Type="DxfEntity" AllowMultiples="true" />
@@ -925,7 +997,7 @@
     SECTIONSETTINGS
 
     -->
-    <Object Name="DxfSectionSettings" ObjectType="SectionSettings" SubclassMarker="AcDbSectionSettings" TypeString="SECTIONSETTINGS" GenerateReaderFunction="false" GenerateWriterFunction="false" MaxVersion="R2007">
+    <Object Name="DxfSectionSettings" ObjectType="SectionSettings" SubclassMarker="AcDbSectionSettings" TypeString="SECTIONSETTINGS" GenerateReaderFunction="false" GenerateWriterFunction="false" MinVersion="R2007">
         <Property Name="SectionType" Code="90" Type="int" DefaultValue="0" />
     </Object>
     <!--
@@ -933,7 +1005,7 @@
     SORTENTSTABLE
 
     -->
-    <Object Name="DxfSortentsTable" ObjectType="SortentsTable" SubclassMarker="AcDbSortentsTable" TypeString="SORTENTSTABLE" GenerateReaderFunction="false" MaxVersion="R14">
+    <Object Name="DxfSortentsTable" ObjectType="SortentsTable" SubclassMarker="AcDbSortentsTable" TypeString="SORTENTSTABLE" GenerateReaderFunction="false" MinVersion="R14">
         <Pointer Name="Entities" Code="331" Type="DxfEntity" AllowMultiples="true" />
         <Pointer Name="SortItems" Code="5" Type="IDxfItem" AllowMultiples="true" />
     </Object>
@@ -942,7 +1014,7 @@
     SPATIAL_FILTER
 
     -->
-    <Object Name="DxfSpatialFilter" ObjectType="SpatialFilter" SubclassMarker="AcDbSpatialFilter" TypeString="SPATIAL_FILTER" GenerateReaderFunction="false" MaxVersion="R14">
+    <Object Name="DxfSpatialFilter" ObjectType="SpatialFilter" SubclassMarker="AcDbSpatialFilter" TypeString="SPATIAL_FILTER" GenerateReaderFunction="false" MinVersion="R14">
         <Property Name="ClipBoundaryDefinitionPoints" Code="10" Type="DxfPoint" DefaultValue="null" AllowMultiples="true" />
         <Property Name="ClipBoundaryNormal" Code="210" Type="DxfVector" DefaultValue="DxfVector.ZAxis" CodeOverrides="210,220,230" />
         <Property Name="ClipBoundaryOrigin" Code="11" Type="DxfPoint" DefaultValue="DxfPoint.Origin" CodeOverrides="11,21,31" />
@@ -982,7 +1054,7 @@
     SPATIAL_INDEX
 
     -->
-    <Object Name="DxfSpatialIndex" ObjectType="SpatialIndex" SubclassMarker="AcDbIndex" TypeString="SPATIAL_INDEX" MaxVersion="R2000">
+    <Object Name="DxfSpatialIndex" ObjectType="SpatialIndex" SubclassMarker="AcDbIndex" TypeString="SPATIAL_INDEX" MinVersion="R2000">
         <Property Name="Timestamp" Code="40" Type="DateTime" DefaultValue="DateTime.Now" ReadConverter="DateDouble" WriteConverter="DateDouble" />
         <WriteOrder>
             <WriteSpecificValue Code="100" Value="&quot;AcDbIndex&quot;" />
@@ -1060,7 +1132,7 @@
     TABLESYLE
 
     -->
-    <Object Name="DxfTableStyle" ObjectType="TableStyle" SubclassMarker="AcDbTableStyle" TypeString="TABLESTYLE" GenerateReaderFunction="false" MaxVersion="R2004">
+    <Object Name="DxfTableStyle" ObjectType="TableStyle" SubclassMarker="AcDbTableStyle" TypeString="TABLESTYLE" GenerateReaderFunction="false" MinVersion="R2004">
         <Property Name="Version" Code="280" Type="DxfVersion" DefaultValue="DxfVersion.R2010" ReadConverter="(DxfVersion)" WriteConverter="(short)" MinVersion="R2010" />
         <Property Name="Description" Code="3" Type="string" DefaultValue="null" />
         <Property Name="FlowDirection" Code="70" Type="DxfFlowDirection" DefaultValue="DxfFlowDirection.Down" ReadConverter="(DxfFlowDirection)" WriteConverter="(short)" />
@@ -1115,7 +1187,7 @@
     UNDERLAYDEFINITION
 
     -->
-    <Object Name="DxfUnderlayDefinition" ObjectType="UnderlayDefinition" SubclassMarker="AcDbUnderlayDefinition" TypeString="UNDERLAYDEFINITION" MaxVersion="R2007">
+    <Object Name="DxfUnderlayDefinition" ObjectType="UnderlayDefinition" SubclassMarker="AcDbUnderlayDefinition" TypeString="UNDERLAYDEFINITION" MinVersion="R2007">
         <Property Name="FileName" Code="1" Type="string" DefaultValue="null" />
         <Property Name="Name" Code="2" Type="string" DefaultValue="null" />
     </Object>
@@ -1124,7 +1196,7 @@
     VBA_PROJECT
 
     -->
-    <Object Name="DxfVbaProject" ObjectType="VbaProject" SubclassMarker="AcDbVbaProject" TypeString="VBA_PROJECT" MaxVersion="R2000">
+    <Object Name="DxfVbaProject" ObjectType="VbaProject" SubclassMarker="AcDbVbaProject" TypeString="VBA_PROJECT" MinVersion="R2000">
         <Property Name="_hexData" Code="310" Type="string" DefaultValue="null" AllowMultiples="true" Accessibility="private" />
         <WriteOrder>
             <WriteSpecificValue Code="100" Value="&quot;AcDbVbaProject&quot;" />
@@ -1139,7 +1211,7 @@
     VISUALSTYLE
 
     -->
-    <Object Name="DxfVisualStyle" ObjectType="VisualStyle" SubclassMarker="AcDbVisualStyle" TypeString="VISUALSTYLE" MaxVersion="R2007">
+    <Object Name="DxfVisualStyle" ObjectType="VisualStyle" SubclassMarker="AcDbVisualStyle" TypeString="VISUALSTYLE" MinVersion="R2007">
         <Property Name="Description" Code="2" Type="string" DefaultValue="null" />
         <Property Name="Type" Code="70" Type="short" DefaultValue="0" />
         <Property Name="FaceLightingModel" Code="71" Type="DxfFaceLightingModel" DefaultValue="DxfFaceLightingModel.Visible" ReadConverter="(DxfFaceLightingModel)" WriteConverter="(short)" />
@@ -1180,7 +1252,7 @@
     WIPEOUTVARIABLES
 
     -->
-    <Object Name="DxfWipeoutVariables" ObjectType="WipeoutVariables" SubclassMarker="AcDbRasterVariables" TypeString="WIPEOUTVARIABLES" MaxVersion="R2004">
+    <Object Name="DxfWipeoutVariables" ObjectType="WipeoutVariables" SubclassMarker="AcDbRasterVariables" TypeString="WIPEOUTVARIABLES" MinVersion="R2004">
         <Property Name="ClassVersion" Code="90" Type="int" DefaultValue="0" />
         <Property Name="DisplayImageFrame" Code="70" Type="bool" DefaultValue="false" ReadConverter="BoolShort" WriteConverter="BoolShort" />
     </Object>
