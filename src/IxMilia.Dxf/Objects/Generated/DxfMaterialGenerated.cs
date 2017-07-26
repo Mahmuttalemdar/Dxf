@@ -118,7 +118,7 @@ namespace IxMilia.Dxf.Objects
         protected override void Initialize()
         {
             base.Initialize();
-            this.Name = null;
+            this.Name = "asdf";
             this.Description = null;
             this.OverrideAmbientColor = false;
             this.AmbientColorFactor = 1.0;
@@ -219,10 +219,8 @@ namespace IxMilia.Dxf.Objects
             pairs.Add(new DxfCodePair(2, (this.Description)));
             pairs.Add(new DxfCodePair(70, BoolShort(this.OverrideAmbientColor)));
             pairs.Add(new DxfCodePair(40, (this.AmbientColorFactor)));
-            pairs.Add(new DxfCodePair(90, (this.AmbientColorValue)));
             pairs.Add(new DxfCodePair(71, BoolShort(this.OverrideDiffuseColor)));
             pairs.Add(new DxfCodePair(41, (this.DiffuseColorFactor)));
-            pairs.Add(new DxfCodePair(91, (this.DiffuseColorValue)));
             pairs.Add(new DxfCodePair(42, (this.DiffuseMapBlendFactor)));
             pairs.Add(new DxfCodePair(72, BoolShort(this.UseImageFileForDiffuseMap)));
             pairs.Add(new DxfCodePair(3, (this.DiffuseMapFileName)));
@@ -237,7 +235,6 @@ namespace IxMilia.Dxf.Objects
             pairs.Add(new DxfCodePair(44, (this.SpecularGlossFactor)));
             pairs.Add(new DxfCodePair(76, BoolShort(this.OverrideSpecularColor)));
             pairs.Add(new DxfCodePair(45, (this.SpecularColorFactor)));
-            pairs.Add(new DxfCodePair(92, (this.SpecularColorValue)));
             pairs.Add(new DxfCodePair(46, (this.SpecularMapBlendFactor)));
             pairs.Add(new DxfCodePair(77, BoolShort(this.UseImageFileForSpecularMap)));
             pairs.Add(new DxfCodePair(4, (this.SpecularMapFileName)));

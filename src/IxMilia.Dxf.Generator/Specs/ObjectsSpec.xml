@@ -383,12 +383,12 @@
 
     -->
     <Object Name="DxfMaterial" ObjectType="Material" SubclassMarker="AcDbMaterial" TypeString="MATERIAL" GenerateReaderFunction="false" MinVersion="R2004">
-        <Property Name="Name" Code="1" Type="string" DefaultValue="null" />
+        <Property Name="Name" Code="1" Type="string" DefaultValue="asdf" />
         <Property Name="Description" Code="2" Type="string" DefaultValue="null" />
 
         <Property Name="OverrideAmbientColor" Code="70" Type="bool" DefaultValue="false" ReadConverter="BoolShort" WriteConverter="BoolShort" />
         <Property Name="AmbientColorFactor" Code="40" Type="double" DefaultValue="1.0" />
-        <Property Name="AmbientColorValue" Code="90" Type="int" DefaultValue="0" />
+        <Property Name="AmbientColorValue" Code="90" Type="int" DefaultValue="0" DisableWritingDefault="true" />
 
         <Property Name="OverrideDiffuseColor" Code="71" Type="bool" DefaultValue="false" ReadConverter="BoolShort" WriteConverter="BoolShort" />
         <Property Name="DiffuseColorFactor" Code="41" Type="double" DefaultValue="1.0" />
@@ -493,11 +493,11 @@
 
             <WriteProperty Property="OverrideAmbientColor" />
             <WriteProperty Property="AmbientColorFactor" />
-            <WriteProperty Property="AmbientColorValue" />
+            <!-- <WriteProperty Property="AmbientColorValue" /> -->
 
             <WriteProperty Property="OverrideDiffuseColor" />
             <WriteProperty Property="DiffuseColorFactor" />
-            <WriteProperty Property="DiffuseColorValue" />
+            <!-- <WriteProperty Property="DiffuseColorValue" /> -->
             <WriteProperty Property="DiffuseMapBlendFactor" />
             <WriteProperty Property="UseImageFileForDiffuseMap" />
             <WriteProperty Property="DiffuseMapFileName" />
@@ -511,7 +511,7 @@
             <WriteProperty Property="SpecularGlossFactor" />
             <WriteProperty Property="OverrideSpecularColor" />
             <WriteProperty Property="SpecularColorFactor" />
-            <WriteProperty Property="SpecularColorValue" />
+            <!-- <WriteProperty Property="SpecularColorValue" /> -->
             <WriteProperty Property="SpecularMapBlendFactor" />
             <WriteProperty Property="UseImageFileForSpecularMap" />
             <WriteProperty Property="SpecularMapFileName" />

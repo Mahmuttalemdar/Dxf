@@ -169,8 +169,13 @@ EOF
             var file = new DxfFile();
             file.Header.Version = DxfAcadVersion.R2013;
             var assembly = typeof(DxfFile).GetTypeInfo().Assembly;
+            var writtenTypes = 0;
             foreach (var type in assembly.GetTypes())
             {
+                if (writtenTypes >= 10)
+                {
+                    break;
+                }
                 if (DxfReaderWriterTests.IsObjectOrDerived(type))
                 {
                     var ctor = type.GetConstructor(Type.EmptyTypes);
@@ -179,6 +184,7 @@ EOF
                         // add the object with its default initialized values
                         var obj = (DxfObject)ctor.Invoke(new object[0]);
                         file.Objects.Add(obj);
+                        writtenTypes++;
                     }
                 }
             }
@@ -191,6 +197,8 @@ EOF
                 {
                     file.Save(fs);
                 }
+
+                File.Copy(inputFile, @"C:\Users\brettfo\Desktop\file.dxf", overwrite: true);
 
                 AssertTeighaConvert(input.DirectoryPath, output.DirectoryPath, DxfAcadVersion.R2013);
             }
