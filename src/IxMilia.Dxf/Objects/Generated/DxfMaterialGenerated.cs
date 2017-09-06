@@ -17,7 +17,7 @@ namespace IxMilia.Dxf.Objects
     public partial class DxfMaterial : DxfObject
     {
         public override DxfObjectType ObjectType { get { return DxfObjectType.Material; } }
-        protected override DxfAcadVersion MaxVersion { get { return DxfAcadVersion.R2004; } }
+        protected override DxfAcadVersion MinVersion { get { return DxfAcadVersion.R2004; } }
         public string Name { get; set; }
         public string Description { get; set; }
         public bool OverrideAmbientColor { get; set; }
@@ -219,7 +219,11 @@ namespace IxMilia.Dxf.Objects
             pairs.Add(new DxfCodePair(2, (this.Description)));
             pairs.Add(new DxfCodePair(70, BoolShort(this.OverrideAmbientColor)));
             pairs.Add(new DxfCodePair(40, (this.AmbientColorFactor)));
-            pairs.Add(new DxfCodePair(90, (this.AmbientColorValue)));
+            if (this.AmbientColorValue != 0)
+            {
+                pairs.Add(new DxfCodePair(90, (this.AmbientColorValue)));
+            }
+
             pairs.Add(new DxfCodePair(71, BoolShort(this.OverrideDiffuseColor)));
             pairs.Add(new DxfCodePair(41, (this.DiffuseColorFactor)));
             pairs.Add(new DxfCodePair(91, (this.DiffuseColorValue)));
